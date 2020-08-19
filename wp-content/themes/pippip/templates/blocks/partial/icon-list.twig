@@ -1,0 +1,5 @@
+<div class="m-icon-list m-icon-list--{{ columns }}">
+  {% for image in listItems %}
+    <img data-src="{{ Image(image.logo).src('logo') }}" class="lazy" alt="{{ image.logo.alt }}" />
+  {% endfor %}
+</div>

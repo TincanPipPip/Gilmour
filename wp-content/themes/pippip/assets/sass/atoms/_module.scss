@@ -1,0 +1,70 @@
+/**
+ * ----------------------
+ * Organic Agency
+ * Atoms - Module spacing
+ * ----------------------
+ */
+
+.a-module {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: $bump * 4 0;
+
+  @include media('<lg') {
+    padding: $bump * 3 0;
+  }
+
+  @include media('<md') {
+    padding: $bump * 2 0;
+  }
+
+  @include media('<sm') {
+    padding: $bump * 1.5;
+  }
+
+  @include media('<xs') {
+    padding: $bump;
+  }
+
+  &--bleed {
+    padding-left: $bump * 1.5;
+    padding-right: $bump * 1.5;
+
+    @include media('<lg') {
+      padding-left: $bump / 2;
+      padding-right: $bump / 2;
+    }
+
+    @include media('<sm') {
+      padding-left: $bump;
+      padding-right: $bump;
+
+      &.a-grid {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+  }
+
+  &__copy {
+    text-align: center;
+    text-align-last: center;
+    margin-bottom: $bump * 1.5;
+
+    @include media('<sm') {
+      margin-bottom: $bump;
+    }
+
+    img {
+      margin-top: $bump;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .a-btn {
+      margin-top: $bump;
+    }
+  }
+}

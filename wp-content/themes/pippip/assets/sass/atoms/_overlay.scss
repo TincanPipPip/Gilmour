@@ -1,0 +1,29 @@
+/**
+ * ----------------------
+ * Organic Agency
+ * Atoms - Image overlay
+ * ----------------------
+ */
+
+.a-overlay {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $c-overlay;
+    z-index: 1;
+  }
+
+  &.brand--blue::before {
+    background-color: transparentize($c-blue, 0.3);
+  }
+
+  &.brand--red::before {
+    background-color: transparentize($c-red, 0.3);
+  }
+}

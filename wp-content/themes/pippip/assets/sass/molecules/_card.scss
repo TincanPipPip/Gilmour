@@ -1,0 +1,68 @@
+/**
+ * ----------------------
+ * Organic Agency
+ * Molecules - Card
+ * ----------------------
+ */
+
+.m-card {
+  @include shadow;
+  display: flex;
+  flex-direction: column;
+  background-color: $c-white;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  &__thumb {
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &__content {
+    padding: $bump;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-grow: 1;
+
+    @include media('<lg') {
+      padding: $bump/1.5;
+    }
+  }
+
+  &__links {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    align-self: stretch;
+
+    small {
+      color: $c-grey;
+    }
+  }
+
+  .h2 {
+    margin-bottom: $bump/3;
+
+    a {
+      text-decoration: none;
+      color: $c-primary;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  p:last-of-type {
+    margin-bottom: $bump;
+  }
+}

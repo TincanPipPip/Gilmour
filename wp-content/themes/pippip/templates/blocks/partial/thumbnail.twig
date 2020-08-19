@@ -1,0 +1,30 @@
+{% set image = Image(image) %}
+
+{# TODO image sizes #}
+
+{# Set default size for Primary CTAs #}
+{% set size = 'large' %}
+
+{% if type == 'secondary' or type == 'card' %}
+  {% set size = 'card' %}
+{% elseif type == 'tertiary' %}
+  {% set size = 'thumbnail' %}
+{% endif %}
+
+{% if link and type != 'primary' %}
+  <a href="{{ link }}" title="Read more about {{ title }}" class="{{ class }}__thumb" tabindex="-1"   >
+{% endif %}
+
+    <picture>
+      {% if type == 'primary' %}
+        <source media="(max-width: 768px)" srcset="{{ image.src('medium') }}" type="image/jpeg">
+      {% endif %}
+      {# <source media="(max-width: 600px)" srcset="{{ image.src }}" type="image/jpeg">
+      <source media="(max-width: 1000px)" data-srcset="{{ image.src }}" type="image/jpeg"> #}
+      {# <source data-srcset="{{ image.src }}" type="image/jpeg"> #}
+      <img data-src="{{ image.src(size) }}" alt="{{ image.alt }}" class="lazy" />
+    </picture>
+
+{% if link and type != 'primary' %}
+  </a>
+{% endif %}

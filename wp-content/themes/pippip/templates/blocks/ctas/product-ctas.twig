@@ -1,0 +1,35 @@
+{#
+/**
+ * Block Name: Product CTAs
+ */
+#}
+
+{% set type = 'products' %}
+
+<section class="a-bleed a-module a-module--bleed a-gradient">
+
+  <div class="a-grid a-grid--3">
+    {% for card in fields.product_ctas %}
+      {% for product in Post(card.product) %} 
+        {% include '/blocks/partial/card.twig' with {
+          type: 'card',
+          content: {
+            image: card.thumbnail_override ? card.thumbnail_override : product.thumbnail,
+            title: product.post_title,
+            copy: card.copy_override ? card.copy_override : product.post_excerpt,
+            buttonLabel: card.button_label,
+            buttonLink: product.link,
+            buttonClass: 'a-btn',
+          },
+          classes: [
+            'm-card',
+            'm-card--' ~ type,
+            card.branding ? 'brand--' ~ card.branding|lower : null,
+            card.add_image_overlay ? 'a-overlay' : null
+          ]
+        } %}
+      {% endfor %}
+    {% endfor %}
+  </div>
+  
+</section>

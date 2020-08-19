@@ -1,0 +1,25 @@
+/**
+ * ----------------------
+ * Organic Agency
+ * Atoms - Skip to content link
+ * ----------------------
+ */
+
+.a-skip-link {
+  @include font-cta;
+  position: absolute;
+  transform: translateY(-100%);
+  width: 100%;
+  background-color: $c-red;
+  color: $c-white;
+  text-align: center;
+  padding: $bump/2;
+  z-index: 10;
+  border: 0;
+  outline: 0;
+
+  &:focus,
+  &:active {
+    transform: translateY(0);
+  }
+}

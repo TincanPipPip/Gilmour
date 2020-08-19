@@ -1,0 +1,58 @@
+/**
+ * ----------------------
+ * Organic Agency
+ * Molecules - Standout
+ * ----------------------
+ */
+
+.m-standout {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+
+  &--light {
+    color: $c-white;
+
+    a {
+      color: $c-white;
+    }
+  }
+
+  picture,
+  &__content {
+    grid-column: 1;
+    grid-row: 1;
+    position: relative;
+  }
+
+  h2 {
+    font-size: 32px;
+    line-height: 36px;
+    text-align: center;
+  }
+
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    display: block;
+    position: absolute;
+  }
+
+  p {
+    text-align: center;
+  }
+
+  a,
+  &__extra-copy {
+    margin-top: $bump;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+  }
+}

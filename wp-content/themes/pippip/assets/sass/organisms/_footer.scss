@@ -1,0 +1,48 @@
+/**
+ * ----------------------
+ * Organic Agency
+ * Organisms - Footer
+ * ----------------------
+ */
+
+.o-footer {
+  @include media('<sm') {
+    .o-footer__row {
+      padding-left: $bump;
+      padding-right: $bump;
+    }
+  }
+
+  &__top {
+    padding: $bump 0;
+  }
+
+  &__nav {
+    background-color: $c-grey-dark;
+    padding: $bump/3 0;
+    color: $c-white;
+  }
+
+  &__bottom {
+    background-color: $c-grey;
+    padding: $bump/2 0;
+    color: $c-white;
+
+    @include media('<sm') {
+      .o-footer__inner {
+        flex-direction: column-reverse;
+      }
+    }
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: $bump;
+
+    @include media('<sm') {
+      flex-direction: column;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{% extends "pages/index.twig" %}
+
+{% block content %}
+  {% include 'partial/listing.twig' with {
+    content: {
+      filterType: 'category',
+      all: true,
+      filterItems: categories
+    }
+  } %}
+{% endblock %}

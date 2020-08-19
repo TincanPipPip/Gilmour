@@ -1,0 +1,29 @@
+{#
+/**
+ * Block Name: Primary CTA
+ */
+#}
+
+{% set type = 'primary' %}
+
+<section class="a-grid a-grid--2 a-grid--tight a-bleed md-ctas md-ctas--primary">
+  {% for cta in fields.ctas %}
+    {% include '/blocks/partial/card.twig' with {
+      type: type,
+      content: {
+        image: cta.image,
+        title: cta.title,
+        copy: cta.copy,
+        buttonLabel: cta.button.title,
+        buttonLink: cta.button.url,
+        buttonClass: 'a-btn--alt'
+      },
+      classes: [
+        'cta',
+        'cta--' ~ type,
+        cta.branding ? 'brand--' ~ cta.branding|lower : null,
+        cta.add_image_overlay ? 'a-overlay' : null
+      ]
+    } %}
+  {% endfor %}
+</section>

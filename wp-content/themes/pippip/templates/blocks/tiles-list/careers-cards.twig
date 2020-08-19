@@ -1,0 +1,40 @@
+{#
+/**
+ * Block Name: Careers cards
+ */
+#}
+
+<section class="a-bleed a-module a-gradient md-careers-cards">
+
+
+  {% include '/blocks/partial/intro.twig' with {
+    content: {
+      title: fields.title,
+      copy: fields.copy
+    }
+  } %}
+
+  <div class="grid justify-center">
+    <div class="col-sm-11">
+      <div class="a-grid a-grid--2">
+      
+        {% for vacancy in fields.vacancies %}
+          {% include '/blocks/partial/card.twig' with {
+            type: type,
+            content: {
+              title: vacancy.title,
+              copy: vacancy.vacancy_info
+            },
+            classes: [
+              'm-card',
+              'm-card--' ~ type,
+            ],
+            withoutP: true
+          } %}
+        {% endfor %}
+
+      </div>
+    </div>
+  </div>
+
+</section>

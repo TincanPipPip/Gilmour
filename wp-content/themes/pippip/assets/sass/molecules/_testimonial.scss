@@ -1,0 +1,68 @@
+/**
+ * ----------------------
+ * Organic Agency
+ * Molecules - Testimonial
+ * ----------------------
+ */
+
+.m-testimonial {
+  @include shadow;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-align-last: center;
+  padding: $bump * 1.5;
+  background-color: $c-white;
+  margin-top: $bump;
+
+  @include media('<lg') {
+    padding: $bump;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: $bump/3;
+    left: $bump/3;
+    width: calc(100% - #{$bump} / 1.5);
+    height: calc(100% - #{$bump} / 1.5);
+    border: 1px solid $c-grey-light;
+  }
+
+  & > * {
+    position: relative;
+  }
+
+  figure {
+    overflow: hidden;
+    height: 175px;
+    width: 175px;
+    margin-top: -$bump * 2.5;
+
+    @include media('<lg') {
+      margin-top: -$bump * 2;
+    }
+  }
+
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  blockquote {
+    margin: $bump/1.5 0;
+  }
+
+  cite {
+    color: $c-primary;
+    margin-bottom: $bump/6;
+
+    &.company {
+      color: $c-grey;
+      margin-bottom: 0;
+    }
+  }
+}

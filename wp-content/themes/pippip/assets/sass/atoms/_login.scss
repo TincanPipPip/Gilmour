@@ -1,0 +1,36 @@
+/**
+ * ----------------------
+ * Organic Agency
+ * Atoms - Login icon
+ * ----------------------
+ */
+
+.a-login {
+  padding: $bump/1.5 0 $bump/1.25 $bump/2;
+
+  @include media('<sm') {
+    padding: $bump/2;
+    margin-left: $bump/2;
+  }
+
+  svg {
+    display: block;
+
+    @include media('<sm') {
+      width: 25px;
+      height: auto;
+    }
+
+    circle,
+    path {
+      transition: 0.15s $easing;
+    }
+  }
+
+  &:hover {
+    circle,
+    path {
+      fill: $c-primary;
+    }
+  }
+}

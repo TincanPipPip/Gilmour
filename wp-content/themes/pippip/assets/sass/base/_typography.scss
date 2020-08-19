@@ -1,0 +1,192 @@
+/**
+ * ----------------------
+ * Organic Agency
+ * Base - Typography
+ * ----------------------
+ */
+
+/**
+ * Config
+ */
+@mixin font-body {
+  font-family: $font-body;
+}
+
+@mixin font-bold {
+  font-weight: normal;
+  font-family: $font-bold;
+}
+
+@mixin font-small {
+  font-size: 15px;
+  line-height: 24px;
+}
+
+@mixin font-title {
+  @include font-bold;
+  margin-top: 0;
+}
+
+@mixin font-cta {
+  @include font-bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+/**
+ * Styles
+ */
+h1,
+.h1 {
+  @include font-title;
+  @include font-body;
+  font-size: 40px;
+  line-height: 48px;
+}
+
+h2,
+.h2 {
+  @include font-title;
+  font-size: 24px;
+  line-height: 29px;
+}
+
+h3,
+.h3 {
+  @include font-title;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  @include font-title;
+  font-size: 16px;
+  line-height: 28px;
+}
+
+/**
+ * Paragraphs
+ */
+p {
+  margin: 0 0 1.5em;
+
+  &:first-of-type {
+    margin-top: 0;
+  }
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+/**
+ * Lists
+ */
+ul,
+ol {
+  margin: 1.5rem 0;
+  list-style-position: inside;
+  padding-left: 0;
+}
+
+/**
+ * Links
+ */
+a {
+  color: inherit;
+  color: var(--brand-colour, inherit);
+  text-decoration: underline;
+  font-weight: inherit;
+  transition: 0.15s $easing;
+
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: none;
+  }
+
+  &:focus {
+    outline: 3px dashed currentColor;
+
+    @include focus-visible() {
+      outline: 0;
+    }
+  }
+}
+
+.no-click {
+  pointer-events: none;
+  cursor: default;
+}
+
+::selection {
+  background-color: $c-secondary;
+  color: $c-primary;
+}
+
+/**
+ * Buttons
+ */
+button {
+  &:focus {
+    outline: 3px dashed currentColor;
+
+    @include focus-visible() {
+      outline: 0;
+    }
+  }
+}
+
+/**
+ * Inline
+ */
+strong {
+  font-weight: bold;
+}
+
+em {
+  font-style: italic;
+}
+
+span {
+  font-family: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  font-size: inherit;
+}
+
+address {
+  font-family: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  font-size: inherit;
+  font-style: normal;
+}
+
+small {
+  font-size: 90%;
+}
+
+hr {
+  border: solid $c-primary;
+  border-width: 0 0 3px 0;
+  margin: 1.5rem 0;
+}
+
+figure {
+  margin: 0;
+}
+
+cite {
+  @include font-cta;
+  font-style: normal;
+}

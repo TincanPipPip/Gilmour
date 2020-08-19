@@ -1,0 +1,22 @@
+{#
+/**
+ * Block Name: Download Brochure CTA
+ */
+#}
+
+{% include '/blocks/partial/standout.twig' with {
+  content: {
+    image: fields.image,
+    title: fields.title,
+    copy: '<p>' ~ fields.copy ~ '</p>',
+    buttonLabel: fields.button_label,
+    buttonLink: fields.download,
+    buttonClass: 'a-btn--alt a-btn--download',
+    buttonExtra: true
+  },
+  classes: [
+    'm-standout--light',
+    fields.add_image_overlay ? 'a-overlay' : null,
+    fields.branding ? 'brand--' ~ fields.branding|lower : null,
+  ]
+} %}

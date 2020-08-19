@@ -1,0 +1,48 @@
+/**
+ * ----------------------
+ * Organic Agency
+ * Helpers - Global mixins
+ * ----------------------
+ */
+
+// Reset <li> elements
+@mixin li-reset {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+// Remove text from elements
+@mixin rm-text {
+  text-align: left;
+  text-indent: -9999px;
+}
+
+// Background images
+@mixin bg-img($size) {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: $size;
+}
+
+// IE 9+ only
+@mixin ie($property, $value) {
+  @media screen and (min-width: 0\0) and (min-resolution: +72dpi) {
+    #{$property}: #{$value};
+  }
+}
+
+@mixin gradient-grey {
+  background: #f0f0f0;
+  background: linear-gradient(90deg, rgba(250, 250, 250, 1) 0%, rgba(240, 240, 240, 1) 100%);
+}
+
+@mixin shadow {
+  box-shadow: 00 2px 6px 0px rgba(0, 0, 0, 0.15);
+}

@@ -1,0 +1,8 @@
+/* 
+* Main column width
+* This changes it from the default 580px to 1120px
+*/
+
+.wp-block {
+  max-width: 1120px;
+}

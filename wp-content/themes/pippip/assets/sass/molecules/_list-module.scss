@@ -1,0 +1,26 @@
+/**
+ * ----------------------
+ * Organic Agency
+ * Molecules - List module
+ * ----------------------
+ */
+
+.m-list-module {
+  &__images {
+    display: grid;
+    grid-auto-flow: column;
+    gap: $bump * 1.5;
+    margin-top: $bump * 1.5;
+
+    @include media('<sm') {
+      grid-auto-flow: row;
+      gap: $bump;
+      margin-top: $bump;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}

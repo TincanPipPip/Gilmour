@@ -1,0 +1,49 @@
+{% block html_head_container %}
+
+	{% include 'html-header.twig' %}
+		{% block head %}
+	{% endblock %}
+	</head>
+{% endblock %}
+
+	<body class="{{body_class}}" data-template="/layout/base.twig">
+
+		<a class="a-skip-link" href="#content">{{ _e( 'Skip to content') }}</a>
+
+		{% block header %}
+			{% include '/organisms/header.twig' %}
+		{% endblock %}
+
+		<main id="content" role="main">
+			
+			{% if title %}
+        <section class="md-banner md-banner--invert">
+          <picture>
+            <img data-src="{{ theme.link }}/dist/img/news-placeholder.png" alt="{{ post.thumbnail.alt }}" class="lazy" />
+          </picture>
+
+          <div class="md-banner__inner">
+            <div class="grid">
+              <div class="col-sm-10 col-md-8">
+                  
+                <h1>{{title}}</h1>
+
+              </div>
+            </div>
+          </div>
+        </section>
+      {% endif %}
+
+			{% block content %}
+				Sorry, no content
+			{% endblock %}
+
+		</main>
+
+		{% block footer %}
+			{% include '/organisms/footer.twig' %}
+
+			{{ function('wp_footer') }}
+		{% endblock %}
+	</body>
+</html>

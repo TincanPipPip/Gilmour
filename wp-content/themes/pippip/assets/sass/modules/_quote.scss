@@ -1,0 +1,103 @@
+/**
+* ----------------------
+* Organic Agency
+* Modules - Quote
+* ----------------------
+*/
+
+.md-quote {
+  color: $c-grey;
+
+  &__content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid $c-grey;
+    border-bottom: 0;
+    border-radius: 2px;
+    padding: $bump * 1.5 $bump * 2 $bump * 1.75;
+    text-align: center;
+    text-align-last: center;
+
+    @include media('<lg') {
+      padding: $bump $bump * 1.5 $bump * 1.25;
+    }
+
+    @include media('<sm') {
+      padding: $bump/1.5 $bump $bump * 1.25;
+    }
+
+    @include media('<xs') {
+      padding: $bump/2 $bump/2 $bump * 1.25;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      height: 1px;
+      background-color: $c-grey;
+      width: var(--quote-border);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+
+    &::after {
+      left: auto;
+      right: 0;
+    }
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    bottom: -20px;
+    height: 40px;
+  }
+
+  blockquote {
+    font-family: $font-body;
+    margin: 0;
+
+    @include media('<sm') {
+      font-size: 18px;
+      line-height: 22px;
+    }
+  }
+
+  cite {
+    &:not(.company) {
+      color: $c-primary;
+    }
+  }
+
+  &--image {
+    @include bg-img(cover);
+    color: $c-white;
+
+    &::before {
+      z-index: 0;
+    }
+
+    .md-quote__content {
+      border-color: $c-white;
+
+      &::before,
+      &::after {
+        background-color: $c-white;
+      }
+    }
+
+    cite {
+      color: $c-grey-light;
+
+      &:not(.company) {
+        color: $c-white;
+      }
+    }
+  }
+}

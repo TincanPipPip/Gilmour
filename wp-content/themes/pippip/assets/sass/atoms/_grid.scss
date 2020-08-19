@@ -1,0 +1,51 @@
+/**
+ * ----------------------
+ * Organic Agency
+ * Atoms - Grid
+ * ----------------------
+ */
+
+.a-grid {
+  display: grid;
+  gap: $bump * 1.5;
+
+  @include media('<lg') {
+    gap: $bump;
+  }
+
+  &--tight {
+    gap: 0;
+  }
+
+  &--1 {
+    grid-template-columns: 1fr;
+  }
+
+  &--2 {
+    grid-template-columns: 1fr 1fr;
+
+    @include media('<sm') {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &--3 {
+    grid-template-columns: 1fr 1fr 1fr;
+
+    @include media('<md') {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @include media('<sm') {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &--4 {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+    @include media('<xs') {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}

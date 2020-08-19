@@ -1,0 +1,21 @@
+/**
+ * ----------------------
+ * Organic Agency
+ * Atoms - Footer contact info
+ * ----------------------
+ */
+
+.a-contact-info {
+  p {
+    margin: 0;
+  }
+
+  a {
+    display: block;
+    color: $c-primary;
+
+    &[href*='tel'] {
+      margin-top: $bump/2;
+    }
+  }
+}

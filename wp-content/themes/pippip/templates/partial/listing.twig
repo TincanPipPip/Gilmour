@@ -1,0 +1,38 @@
+{{ content.banner }}
+
+<section class="o-listing">
+
+  <div class="grid">
+    <div class="col-sm-12">
+
+      <div class="o-listing__filters m-tags">
+        <h3>Filter items by {{ content.filterType }}</h3>
+
+        {% if content.all %}
+          <a href="/news" title="See all posts" class="a-btn--sm">See all</a>
+        {% endif %}
+        
+        {% for filterItem in content.filterItems %}
+          <a href="{{ filterItem.link }}" title="See all posts tagged with {{ filterItem.name }}" class="a-btn--sm">{{ filterItem.name }}</a>
+        {% endfor %}
+      </div>
+
+    </div>
+  </div>
+
+  <div class="a-gradient o-listing__results">
+    <div class="grid">
+      <div class="col-sm-12">
+        
+        <div class="a-grid a-grid--3">
+          {% for post in posts %}
+            {% include ['teaser-'~post.post_type~'.twig', 'teaser.twig'] %}
+          {% endfor %}
+        </div>
+
+        {% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
+
+      </div>
+    </div>
+  </div>
+</section>

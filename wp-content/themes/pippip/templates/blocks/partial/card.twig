@@ -1,0 +1,48 @@
+<div class="{{ classes|join(' ') }}">
+
+  {% include('/blocks/partial/thumbnail.twig') with {
+    type: type, 
+    image: content.image,
+    link: content.secondaryLink ? content.secondaryLink : content.buttonLink,
+    title: content.title,
+    class: classes[0]
+  } %}
+
+  <div class="{{ classes[0] }}__content">
+
+        {% if type == 'primary' %}
+          <h2>{{ content.title }}</h2>
+        {% else %}
+          <h3 class="h2">
+            {% if content.secondaryLink %}
+              <a href="{{ content.secondaryLink }}" title="Read more about {{ content.title }}">
+            {% endif %}
+
+            {{ content.title }}
+
+            {% if content.secondaryLink %}
+              </a>
+            {% endif %}
+          </h3>
+        {% endif %}
+    
+    {% if content.copy %}
+      {% if withoutP %}
+        {{ content.copy }}
+      {% else %}
+        <p>{{ content.copy }}</p>
+      {% endif %}
+    {% endif %}
+
+    {% if content.buttonLink %}
+      <div class="{{ classes[0] }}__links">
+        {% if content.ttr %}
+          {% include 'blocks/partial/ttr.twig' %}
+        {% endif %}
+
+        <a href="{{ content.buttonLink }}" class="{{ content.buttonClass }}" title="Read more about {{ content.title }}">{{ content.buttonLabel }}</a>
+      </div>
+    {% endif %}
+  </div>
+
+</div>

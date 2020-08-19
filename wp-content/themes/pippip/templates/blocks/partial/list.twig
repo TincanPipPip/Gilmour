@@ -1,0 +1,38 @@
+<section class="{{ classes|join(' ') }} m-list-module">
+
+  {% include '/blocks/partial/intro.twig' with {
+    content: {
+      title: content.title,
+      copy: content.copy
+    }
+  } %}
+
+  <div class="{{ listClasses|join(' ') }}">
+    <ul class="m-list {% if listModifier %}{{ listModifier|join(' ') }}{% endif %}">
+      {% for listItems in content.list %}
+        <li class="{% if not listItems.image %}no-img{% endif %}">
+          {% if listItems.image %}
+            <img data-src="{{ Image(listItems.image).src('square_xsmall') }}" class="lazy" alt="{{ listItems.image.alt }}" />
+          {% endif %}
+          
+          <div class="m-list__content">
+            {% if listItems.sub_header %}
+              <h3 class="h4">{{ listItems.sub_header }}</h3>
+            {% endif %}
+
+            {{ listItems.list_item }}
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  {% if content.images %}
+    <div class="m-list-module__images">
+      {% for images in content.images %}
+        <img data-src="{{ Image(images.image).src }}" class="lazy" alt="{{ images.image.alt }}" />
+      {% endfor %}
+    </div>
+  {% endif %}
+
+</section>

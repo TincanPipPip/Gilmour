@@ -1,0 +1,5 @@
+<div class="{{ classes|join(' ') }}">
+  {% for links in content.links %}
+    {{ include('/atoms/social-link.twig') }}
+  {% endfor %}
+</div>

@@ -1,0 +1,21 @@
+<section class="a-bleed m-standout {{ classes|join(' ') }}">
+  {# TODO image sizes #}
+  <picture>
+    <img data-src="{{ Image(content.image).src }}" alt="" class="lazy" />
+  </picture>
+
+  <div class="a-module m-standout__content">
+
+    <h2>{{ content.title }}</h2>
+
+    {% if content.copy %}
+      <div class="col-sm-8 col-md-6 col-bleed">{{ content.copy }}</div>
+    {% endif %}
+
+    <a href="{{ content.buttonLink }}" class="{{ content.buttonClass }}">{% if content.buttonExtra %}<span>{% include 'icon/download.svg' ignore missing %}</span>{% endif %}{{ content.buttonLabel }}</a>
+
+    {% if content.extraCopy %}
+      <div class="col-sm-8 col-md-6 col-bleed m-standout__extra-copy">{{ content.extraCopy }}</div>
+    {% endif %}
+  </div>
+</section>

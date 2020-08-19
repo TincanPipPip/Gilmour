@@ -1,0 +1,25 @@
+{#
+/**
+ * Block Name: Accreditation
+ */
+#}
+
+<section class="a-bleed a-module md-accreditation">
+
+  <div class="grid justify-center">
+    <div class="col-sm-11">
+      {% include '/blocks/partial/icon-list.twig' with {
+        columns: '5',
+        listItems: fields.logos
+      } %}
+
+      {% if fields.awards %}
+        {% include '/blocks/partial/icon-list.twig' with {
+          columns: '5',
+          listItems: fields.awards
+        } %}
+      {% endif %}
+    </div>
+  </div>
+
+</section>

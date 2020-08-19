@@ -1,0 +1,24 @@
+/**
+* ----------------------
+* Organic Agency
+* Base - Branding overrides
+* ----------------------
+*/
+
+/**
+* Config
+*/
+:root {
+  --brand-colour: #{$c-red};
+}
+
+/**
+* Styling
+*/
+.brand--grey {
+  --brand-colour: #{$c-grey};
+}
+
+.brand--blue {
+  --brand-colour: #{$c-blue};
+}

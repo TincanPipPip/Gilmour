@@ -1,0 +1,29 @@
+/**
+ * ----------------------
+ * Organic Agency
+ * Config - Typography
+ * ----------------------
+ */
+
+/**
+ * Font family
+ */
+$font-body: 'montserratmedium';
+$font-bold: 'montserratsemibold';
+
+/**
+ * Custom fonts
+ */
+@font-face {
+  font-family: 'montserratmedium';
+  src: url('../font/montserrat-medium-webfont.woff2') format('woff2'), url('../font/montserrat-medium-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'montserratsemibold';
+  src: url('../font/montserrat-semibold-webfont.woff2') format('woff2'), url('../font/montserrat-semibold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}

@@ -1,0 +1,22 @@
+/**
+ * ----------------------
+ * Organic Agency
+ * Organisms - Listing
+ * ----------------------
+ */
+
+.o-listing {
+  @include media('<sm') {
+    &__filters {
+      padding: 0 $bump;
+    }
+  }
+
+  &__results {
+    padding: $bump * 2 0;
+
+    @include media('<sm') {
+      padding: $bump;
+    }
+  }
+}

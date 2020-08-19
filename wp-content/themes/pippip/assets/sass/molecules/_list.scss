@@ -1,0 +1,92 @@
+/**
+ * ----------------------
+ * Organic Agency
+ * Molecules - List
+ * ----------------------
+ */
+
+.m-list {
+  @include li-reset;
+  margin-top: $bump / 2;
+
+  .h4 {
+    margin-bottom: 0;
+  }
+
+  &--onecol {
+    li {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: $bump/1.5;
+      margin-bottom: $bump * 1.5;
+
+      @include media('<xs') {
+        grid-template-columns: 65px 1fr;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &.no-img {
+        &:before {
+          @include bg-img(50px);
+          background-image: url('../icon/bullet.svg');
+          content: '';
+          display: block;
+          border-radius: 50%;
+          background-color: $c-white-dark;
+          height: 100px;
+
+          .brand--blue & {
+            background-image: url('../icon/bullet-blue.svg');
+          }
+
+          @include media('<xs') {
+            height: 65px;
+            background-size: $bump;
+          }
+        }
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+        border-radius: 50%;
+        overflow: hidden;
+      }
+    }
+  }
+
+  &--twocol {
+    columns: 2;
+    column-gap: $bump;
+    margin-bottom: -$bump;
+
+    @include media('<sm') {
+      columns: 1;
+    }
+
+    li {
+      @include bg-img($bump);
+      background-image: url('../icon/bullet.svg');
+      background-position: left 5px;
+      padding: 0 0 $bump $bump * 1.5;
+      display: inline-block;
+      page-break-inside: avoid;
+      break-inside: avoid-column;
+
+      .brand--blue & {
+        background-image: url('../icon/bullet-blue.svg');
+      }
+    }
+  }
+
+  &--botmarg {
+    margin-bottom: -$bump * 2;
+
+    @include media('<lg') {
+      margin-bottom: -$bump;
+    }
+  }
+}

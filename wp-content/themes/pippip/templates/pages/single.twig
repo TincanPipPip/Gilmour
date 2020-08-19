@@ -1,0 +1,116 @@
+{% extends "/layout/base.twig" %}
+
+{% block content %}
+
+  <article class="t-article">
+
+    <div class="t-article__banner">
+
+      <div class="grid justify-center">
+        <div class="col-sm-11 col-bleed-y">
+          <div class="t-article__header">
+
+            <figure class="t-article__header-image">
+              <img data-src="{{ post.thumbnail.src|resize(660, 660) }}" class="lazy" alt="{{ post.thumbnail.alt }}">
+            </figure>
+
+            <div class="t-article__header-intro">
+              <h1>{{ post.title }}</h1>
+
+              {% if post.get_field('strapline') %}
+                <p>{{ post.get_field('strapline') }}</p>
+              {% endif %}
+            </div>
+
+            <div class="t-article__header-share">
+
+              {% set shareLinks = {
+                '0': {
+                  'link': {
+                    'url': 'https://twitter.com/intent/tweet?source=&text=:%20&via=p1investment',
+                    'title': 'Tweet this article',
+                    'onclick': 'window.open("https://twitter.com/intent/tweet?text=" + encodeURIComponent(document.title) + ":%20" + encodeURIComponent(document.URL)); return false;'
+                  }
+                },
+                '1': {
+                  'link': {
+                    'url': 'http://www.linkedin.com/shareArticle?mini=true&url=&title=&summary=&source=',
+                    'title': 'Share on LinkedIn',
+                    'onclick': 'window.open("http://www.linkedin.com/shareArticle?mini=true&url=" + encodeURIComponent(document.URL) + "&title=" +  encodeURIComponent(document.title)); return false;'
+                  }
+                },
+              }
+              %}
+
+              {% include '/molecules/social-links.twig' with {
+                content: {
+                  links: shareLinks,
+                },
+                classes: [
+                  'm-social-links',
+                  'm-social-links--share'
+                ]
+              } %}
+            </div>
+
+            <div class="t-article__header-details">
+              <time datetime="{{ post.date|date('Y-m-d H:i:s') }}">
+                {{ post.date|date('M jS Y') }}
+              </time>
+
+              {% include 'blocks/partial/ttr.twig' %}
+
+              <div class="m-tags">
+                {% for category in post.categories %}
+                  <a href="{{ category.link }}" title="See all posts tagged with {{ category.name }}" class="a-btn--sm">{{ category.name }}</a>
+                {% endfor %}
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="grid justify-center">
+      <div class="col-sm-10 col-lg-9">
+
+        <section class="t-article__content">
+          {{ post.content }}
+        </section>
+
+      </div>
+    </div>
+
+    <div class="grid justify-center">
+      <div class="col-sm-10 col-lg-9">
+
+        <section class="t-article__details">
+          <div class="t-article__author">
+            <img data-src="{{ post.author.avatar.src }}" class="lazy" alt="{{ post.author.name }}" />
+
+            <div class="t-article__author-copy">
+              <h3>{{ post.author.name }}</h3>
+              <p>{{ post.author.description }}</p>
+            </div>
+          </div>
+        
+          <aside class="t-article__featured">
+            <h4 class="h3">Featured in</h4>
+
+            {% if post.get_field('featured_in') %}
+              {% set image = Image(post.get_field('featured_in')) %}
+              <img data-src="{{ image.src|resize('264') }}" class="lazy" alt="{{ image.alt }}" />  
+            {% else %}
+              <img data-src="{{ theme.link }}/dist/img/logo.png" class="lazy" alt="{{ image.alt }}" />  
+            {% endif %}
+          </aside>
+        </section>
+
+      </div>
+    </div>
+
+
+  </article>
+{% endblock %}

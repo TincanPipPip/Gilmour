@@ -1,0 +1,52 @@
+/**
+ * ----------------------
+ * Organic Agency
+ * Molecules - Platform tiles
+ * ----------------------
+ */
+
+.md-platform-tiles {
+  &__tiles {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    @include media('<sm') {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    text-align-last: center;
+    padding: 0 $bump;
+    width: 30%;
+
+    @include media('<lg') {
+      padding: 0 $bump/2;
+      width: 33.3333%;
+    }
+
+    @include media('<sm') {
+      width: 60%;
+      margin-bottom: $bump;
+      padding: 0;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    @include media('<xs') {
+      width: 100%;
+    }
+  }
+
+  img {
+    margin-bottom: $bump/2;
+  }
+}

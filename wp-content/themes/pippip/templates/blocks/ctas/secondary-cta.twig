@@ -1,0 +1,32 @@
+{#
+/**
+ * Block Name: Secondary CTA
+ */
+#}
+
+{% set type = 'secondary' %}
+
+<section class="a-bleed a-module {% if fields.alternate_background_colour %}a-gradient{% endif %} md-ctas md-ctas--secondary">
+  {# {% for cta in fields.ctas %} #}
+    {% include '/blocks/partial/card.twig' with {
+      type: type,
+      content: {
+        image: fields.image,
+        title: fields.title,
+        copy: fields.copy,
+        buttonLabel: fields.button.title,
+        buttonLink: fields.button.url,
+        buttonClass: 'a-btn'
+      },
+      classes: [
+        'cta',
+        'cta--' ~ type,
+        'col-sm-9',
+        'col-md-7',
+        'col-bleed',
+        fields.branding ? 'brand--' ~ fields.branding|lower : null,
+        fields.add_image_overlay ? 'a-overlay' : null
+      ]
+    } %}
+  {# {% endfor %} #}
+</section>

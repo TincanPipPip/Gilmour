@@ -1,0 +1,42 @@
+/**
+ * ----------------------
+ * Organic Agency
+ * Molecules - Icon list
+ * ----------------------
+ */
+
+.m-icon-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: $bump * 2;
+
+  @include media('<sm') {
+    gap: $bump;
+  }
+
+  &:nth-child(2) {
+    margin-top: $bump;
+  }
+
+  &--5 {
+    img {
+      width: 15%;
+
+      @include media('<sm') {
+        width: 20%;
+      }
+
+      @include media('<xs') {
+        width: 40%;
+      }
+    }
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+  }
+}

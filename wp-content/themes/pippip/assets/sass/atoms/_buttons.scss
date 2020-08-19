@@ -1,0 +1,125 @@
+/**
+ * ----------------------
+ * Organic Agency
+ * Atoms - Buttons
+ * ----------------------
+ */
+
+/**
+ * Config
+ **/
+
+@mixin btn-basics {
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+@mixin btn {
+  @include btn-basics;
+  @include font-cta;
+  border: 2px solid $c-red;
+  border-color: var(--brand-colour);
+  padding: 13px 36px;
+  color: $c-red;
+  color: var(--brand-colour);
+
+  @include media('<xs') {
+    padding: 13px 20px;
+  }
+}
+
+@mixin btn-hover {
+  background-color: $c-red;
+  background-color: var(--brand-colour);
+  color: $c-white;
+  text-decoration: none;
+  border-color: $c-red;
+  border-color: var(--brand-colour);
+}
+
+/**
+ * Styles
+ **/
+
+.a-btn {
+  @include btn;
+
+  &:hover {
+    @include btn-hover;
+  }
+
+  &--alt {
+    @include btn;
+    color: $c-white;
+    border-color: $c-white;
+
+    &:hover {
+      @include btn-hover;
+      background-color: $c-white;
+      color: $c-primary;
+      color: var(--brand-colour);
+    }
+  }
+
+  &--minimal {
+    @include btn;
+    border: 0;
+    padding: 0;
+
+    @include media('<xs') {
+      padding: 0;
+    }
+
+    &:hover {
+      color: $c-primary;
+      // text-decoration: none;
+    }
+  }
+
+  &--download {
+    position: relative;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    margin-left: 48px;
+
+    span {
+      content: '';
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: -2px;
+      left: -48px;
+      width: 46px;
+      height: calc(100% + 4px);
+      background-color: $c-white;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+      transition: 0.15s $easing;
+    }
+
+    .icon {
+      fill: $c-red;
+      transition: 0.15s $easing;
+    }
+
+    &:hover {
+      border-color: $c-white;
+    }
+  }
+
+  &--sm {
+    @include btn-basics;
+    background-color: $c-white-dark;
+    color: $c-primary;
+    padding: $bump/4 $bump/2;
+
+    &:hover {
+      background-color: $c-red;
+      color: $c-white;
+    }
+  }
+}

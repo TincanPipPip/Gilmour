@@ -1,0 +1,29 @@
+{#
+/**
+ * Block Name: Quotes
+ */
+#}
+
+{% if fields.background_image %}
+  {% set image = Image(fields.background_image).src %}
+{% endif %}
+
+<section class="a-bleed a-module md-quote {% if image %}md-quote--image a-overlay{% endif %}" {% if image %}style="background-image: url({{ image }});"{% endif %}>
+
+  <div class="col-sm-8 col-lg-6 col-bleed">
+    <div class="md-quote__content">
+      <blockquote class="h2">{{ fields.quote }}</blockquote>
+
+      <aside class="md-quote__details">
+        {% if fields.cite %}
+          <cite>{{ fields.cite }}</cite>
+        {% endif %}
+
+        {% if fields.company %}
+          <cite class="company">{{ fields.company }}</cite>
+        {% endif %}
+      </aside>
+    </div>
+  </div>
+
+</section>
